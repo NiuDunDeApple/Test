@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input autofocus id="input">
+<div id="content">
+
+</div>
+
+<script !src="">
+    const list = []
+
+    document.querySelector('#' + 'input').addEventListener('keydown', function (e) {
+        if (e.keyCode !== 13) return
+        let that = this
+        let v = that.value
+        if (!v) return
+        list.push(v)
+        console.log(`list: `, list)
+
+        document.querySelector('#' + 'content').innerHTML = list.join('<br/>')
+        that.value = ''
+        that.focus()
+    })
+</script>
+</body>
+</html>
