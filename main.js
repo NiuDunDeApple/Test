@@ -24,6 +24,7 @@ Content.prototype.add = function (v) {
 
 
 function __main() {
+    // todo 手机端复制完会放大一下
     const content = Content.new()
 
     bind('input', 'keydown', function (e) {
@@ -44,22 +45,11 @@ function __main() {
         document.body.appendChild(oInput)
         // 选择对象
         oInput.select()
-        //兼容ios
-        if (navigator.userAgent.match(/(iPhone|iPod|iPad)?/i)) {
-            if (!document.execCommand("Copy")) {
-                oInput.setSelectionRange(0, oInput.value.length)
-            }
-        }
+        oInput.setSelectionRange(0, oInput.value.length)
         // 执行浏览器复制命令
         document.execCommand("Copy")
         document.body.removeChild(oInput)
-        return new Promise((resolve,reject)=>{
-            if (document.execCommand("Copy")) {
-                resolve(value)
-            }else{
-                reject(value)
-            }
-        })
+        alert('复制成功')
     })
 }
 
