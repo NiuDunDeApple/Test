@@ -6,10 +6,7 @@ body {
     margin: 0;
 }
 
-.container {
-    padding: 10px;
-}
-
+/*按钮样式*/
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -20,18 +17,39 @@ button {
     background: linear-gradient(135deg, #74b9ff 0%, #ff757c 100%);
     border: none;
     border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 
 button:hover {
     background: linear-gradient(135deg, #ff757c 0%, #74b9ff 100%);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
     transform: translateY(-2px);
 }
 
 button:active {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
     transform: translateY(2px);
 }
 
+/* 输入框的基本样式 */
+input {
+    font-size: 16px; /* 字体大小 */
+    padding: 10px 20px; /* 内边距 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 5px; /* 圆角 */
+    outline: none; /* 去除焦点时的轮廓线 */
+    transition: border-color 0.3s; /* 边框颜色变化的过渡效果 */
+}
+
+/* 输入框获得焦点时的样式 */
+input:focus {
+    border-color: #007bff; /* 边框颜色变为蓝色 */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* 添加阴影效果 */
+}
+
+/* 可以添加一个placeholder样式 */
+input::placeholder {
+    color: #aaa; /* 占位符文本颜色 */
+    font-style: italic; /* 斜体 */
+}
