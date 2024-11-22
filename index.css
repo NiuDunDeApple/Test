@@ -1,0 +1,37 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(135deg, #74b9ff 0%, #ff757c 100%);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff757c 0%, #74b9ff 100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+}
+
+button:active {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(2px);
+}
+

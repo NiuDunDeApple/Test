@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    移动端显示优化-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记录</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div class="container">
+    <!--<span style="color: red">❤</span>-->
+    <!--<img src="img/a.jpg" style="width: 100px">-->
+    <button id="copy">copy</button>
+    <input autofocus id="input" style="width: 100%; margin: 10px 0;">
+    <div id="content"></div>
+</div>
+
+<script !src="">
+    // autofocus
+
+    class Content {
+        // 私有
+        #dom
+        #char
+        constructor() {
+            this.#dom = document.querySelector('#' + 'content')
+            this.#char = '<br>'
+        }
+        static new(...args) {
+            return new this(...args)
+        }
+        get() {
+            if (this.#dom.innerHTML === '') return []
+            let v = this.#dom.innerHTML.split(this.#char)
+            return v
+        }
+        set(v) {
+            this.#dom.innerHTML = v.join(this.#char)
+        }
+    }
+    const content = Content.new()
+
+    const bind = (id, eventName, callback) => {
+        document.querySelector('#' + id).addEventListener(eventName, e => {
+            callback(e)
+        })
+    }
+
+    bind('input', 'keydown', e => {
+        if (e.keyCode !== 13) return
+        let target = e.target
+        let v = target.value
+        if (!v) return
+
+        const list = content.get().concat([v])
+        content.set(list)
+        target.value = ''
+        target.focus()
+    })
+
+    bind('copy', 'click', e => {
+        // 复制文本到剪贴板
+        navigator.clipboard.writeText(content.get().join('\n')).then(function() {
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    })
+</script>
+</body>
+</html>
