@@ -1,3 +1,10 @@
+import {
+    bind,
+    log,
+    find,
+} from './js/utils.js'
+
+
 // 重要：es5 类写法要用 function，不能用箭头函数
 function Content() {
     this.dom = find('content')

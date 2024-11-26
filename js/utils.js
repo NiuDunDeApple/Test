@@ -13,3 +13,10 @@ function bind(id, eventName, callback) {
 function log(v) {
     find('log').innerHTML += v + '<br>'
 }
+
+
+export {
+    find,
+    bind,
+    log,
+}
