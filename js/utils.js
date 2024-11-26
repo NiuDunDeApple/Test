@@ -7,7 +7,6 @@ function bind(id, eventName, callback) {
     find(id).addEventListener(eventName, function (e) {
         callback(e)
     })
-
 }
 
 
